@@ -34,7 +34,6 @@ public class menuScreen extends InputAdapter implements Screen {
     Rectangle player_rect,virus_rect;
     OrthographicCamera camera = null;
     Circle collisionCircle;
-    private regions;
 
     @Override
     public void show() {
@@ -59,9 +58,6 @@ public class menuScreen extends InputAdapter implements Screen {
     private void loadTextures() {
         sheet = new Texture(Gdx.files.internal("Pictures.png"));
         sheet.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
-
-        regions = new Regions[4];
-
         // Sprites de la nau
         playerPosStatic = new TextureRegion(sheet, 0, 0, 80, 100);
         playerPosStatic.flip(true, true);
@@ -102,17 +98,17 @@ public class menuScreen extends InputAdapter implements Screen {
         ScreenUtils.clear(1,1,1,0);
         PlayerSelect = playerPosStatic;
         Texture SelPlayer,SelVirus;
-        SelPlayer = new Texture((TextureData) PlayerSelect.getTexture());
+        //COLLIDE PROBLEM IT DOESN'T WORK
+        /*SelPlayer = new Texture((TextureData) PlayerSelect.getTexture());
         SelVirus = new Texture((TextureData) virus.getTexture());
         virus_rect = new Rectangle(100,100,SelVirus.getWidth(),SelVirus.getHeight());
         player_rect = new Rectangle(100,100,SelPlayer.getWidth(),SelPlayer.getHeight());
-        //COLLIDE
+         */
+
         /*if (Intersector.overlaps(SelPlayer,SelVirus)){
             System.out.println("Collides");
         }*/
-        if(PlayerSelect.getRegionY() == virus.getRegionY() ||PlayerSelect.getRegionX() == virus.getRegionX()){
-            System.out.println("OUT");
-        }
+
         if(Gdx.input.isKeyPressed(Input.Keys.DPAD_UP)){
             System.out.println("Right");
             PlayerSelect = playerPosR;
