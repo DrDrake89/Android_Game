@@ -11,10 +11,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import java.awt.Rectangle;
 import java.awt.geom.Arc2D;
 import java.util.Random;
 
@@ -100,14 +100,13 @@ public class menuScreen extends InputAdapter implements Screen {
         Texture SelPlayer,SelVirus;
         //COLLIDE PROBLEM IT DOESN'T WORK
         /*SelPlayer = new Texture((TextureData) PlayerSelect.getTexture());
-        SelVirus = new Texture((TextureData) virus.getTexture());
-        virus_rect = new Rectangle(100,100,SelVirus.getWidth(),SelVirus.getHeight());
-        player_rect = new Rectangle(100,100,SelPlayer.getWidth(),SelPlayer.getHeight());
-         */
+        SelVirus = new Texture((TextureData) virus.getTexture());*/
+        virus_rect = new Rectangle(100,100,virus.getRegionWidth(),virus.getRegionHeight());
+        player_rect = new Rectangle(100,100,PlayerSelect.getRegionWidth(),PlayerSelect.getRegionHeight());
 
-        /*if (Intersector.overlaps(SelPlayer,SelVirus)){
+        if (Intersector.overlaps(player_rect,virus_rect)){
             System.out.println("Collides");
-        }*/
+        }
 
         if(Gdx.input.isKeyPressed(Input.Keys.DPAD_UP)){
             System.out.println("Right");
