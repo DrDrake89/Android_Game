@@ -21,7 +21,7 @@ import java.util.Random;
 public class menuScreen extends InputAdapter implements Screen {
 
     // Sprite Sheet
-    Texture sheet,sheetBackground,player;
+    Texture sheet,sheetBackground;
     Stage stage;
     SpriteBatch batch;
     TextureRegion PlayerSelect,playerPosStatic,playerPosL,playerPosD,playerPosR,playerPosU,virus,backGroundImage;
@@ -33,7 +33,6 @@ public class menuScreen extends InputAdapter implements Screen {
     int tw = 0;int th = 0;
     Rectangle player_rect,virus_rect;
     OrthographicCamera camera = null;
-    Circle collisionCircle;
 
     @Override
     public void show() {
@@ -97,10 +96,6 @@ public class menuScreen extends InputAdapter implements Screen {
         Gdx.gl.glClearColor(1,1,1,0);
         ScreenUtils.clear(1,1,1,0);
         PlayerSelect = playerPosStatic;
-        Texture SelPlayer,SelVirus;
-        //COLLIDE PROBLEM IT DOESN'T WORK
-        /*SelPlayer = new Texture((TextureData) PlayerSelect.getTexture());
-        SelVirus = new Texture((TextureData) virus.getTexture());*/
         virus_rect = new Rectangle(100,100,virus.getRegionWidth(),virus.getRegionHeight());
         player_rect = new Rectangle(100,100,PlayerSelect.getRegionWidth(),PlayerSelect.getRegionHeight());
 
